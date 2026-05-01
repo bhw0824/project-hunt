@@ -7,35 +7,16 @@ const supabase = createClient(
 
 // Starter "finder" sources (we'll make this dynamic later)
 const starterLeads = [
-  {
-    project_name: "BEAD Broadband Project Watch",
-    company: "State Broadband Office",
-    state: "MULTI",
-    source_url: "https://www.internetforall.gov/",
-    status: "New",
-    priority: "High",
-    notes: "Tracks BEAD funding and broadband rollout projects."
-  },
-  {
-    project_name: "NTIA Funding Monitor",
-    company: "NTIA",
+{
+    project_name: "SAM.gov Fiber / Broadband RFP Search",
+    company: "Federal Contract Opportunities",
     state: "US",
-    source_url: "https://www.ntia.gov/",
+    source_url: "https://sam.gov/search/?index=opp&keywords=broadband%20fiber",
     status: "New",
     priority: "High",
-    notes: "Tracks federal broadband funding announcements."
-  },
-  {
-    project_name: "State RFP Sweep",
-    company: "Multiple",
-    state: "US",
-    source_url: "https://www.internetforall.gov/funding-recipients",
-    status: "New",
-    priority: "High",
-    notes: "Finds awardees and construction regions."
+    notes: "Federal RFP source..."
   }
 ];
-
 // POST = run the finder and insert leads
 export async function POST() {
   const { data, error } = await supabase
