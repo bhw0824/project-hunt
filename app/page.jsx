@@ -34,7 +34,6 @@ export default function ProjectHunt() {
   };
 
   const [leads, setLeads] = useState([]);
-  const [leads, setLeads] = useState([]);
   const [form, setForm] = useState(blankLead);
   const [editingId, setEditingId] = useState(null);
   const [loading, setLoading] = useState(true);
