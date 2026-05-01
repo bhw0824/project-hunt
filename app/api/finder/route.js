@@ -7,12 +7,9 @@ const supabase = createClient(
 
 // Starter "finder" sources (we'll make this dynamic later)
 async function fetchSAM() {
-  const res = await fetch(
-  `https://api.sam.gov/prod/opportunities/v2/search?limit=20&api_key=${process.env.SAM_API_KEY}&q=fiber%20broadband%20utility%20construction`
+ const res = await fetch(
+`https://api.sam.gov/prod/opportunities/v2/search?limit=20&api_key=${process.env.SAM_API_KEY}&q=fiber%20broadband%20utility%20construction`
 );
-);
-  );
-
   const json = await res.json();
 
   if (!json.opportunitiesData) return [];
