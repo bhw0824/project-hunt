@@ -17,6 +17,23 @@ const statuses = ['New', 'Researching', 'Contacted', 'Qualified', 'Dead'];
 const priorities = ['High', 'Medium', 'Low'];
 
 export default function ProjectHunt() {
+  const runFinder = async () => {
+    try {
+      const res = await fetch("/api/finder", {
+        method: "POST"
+      });
+
+      const data = await res.json();
+
+      alert("Projects added: " + data.inserted);
+
+      window.location.reload();
+    } catch (err) {
+      alert("Finder failed");
+    }
+  };
+
+  const [leads, setLeads] = useState([]);
   const [leads, setLeads] = useState([]);
   const [form, setForm] = useState(blankLead);
   const [editingId, setEditingId] = useState(null);
@@ -122,6 +139,11 @@ export default function ProjectHunt() {
           <p className="subtext">Track fiber, broadband, utility, make-ready, pole attachment, and construction project opportunities.</p>
         </div>
         <button className="refresh" onClick={fetchLeads}>Refresh</button>
+<button onClick={runFinder} style={{ marginTop: '10px' }}>
+  Run Project Finder
+</button>
+  
+
       </section>
 
       <section className="statsGrid">
