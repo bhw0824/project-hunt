@@ -35,7 +35,7 @@ export async function POST() {
   const { data, error } = await supabase
     .from("leads")
     .upsert(samLeads, { onConflict: "source_url" })
-    .select();
+    .select('*');
 
   if (error) {
     return new Response(
@@ -45,7 +45,7 @@ export async function POST() {
   }
 
   return new Response(
-    JSON.stringify({ ok: true, inserted: data.length, data }),
+    JSON.stringify({ ok: true, inserted: data ? data.length : 0, data }),
     { status: 200 }
   );
 }
@@ -58,29 +58,7 @@ export async function GET() {
   );
 }
 // POST = run the finder and insert leads
-export async function POST() {
-  const { data, error } = await supabase
-    .from("leads")
-    .upsert(starterLeads, { onConflict: 'source_url' })
-    .select();
 
-  if (error) {
-    return new Response(
-      JSON.stringify({ ok: false, error: error.message }),
-      { status: 500 }
-    );
-  }
-
-  return new Response(
-    JSON.stringify({ ok: true, inserted: data.length, data }),
-    { status: 200 }
-  );
-}
-
-// GET = simple test to confirm route works
-export async function GET() {
-  return new Response(
-    JSON.stringify({ ok: true, message: "Finder API is live" }),
     { status: 200 }
   );
 }
