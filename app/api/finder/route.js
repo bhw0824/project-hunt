@@ -15,13 +15,22 @@ const starterLeads = [
     status: "New",
     priority: "High",
     notes: "Federal RFP source..."
-  }
+  },
+  {
+  project_name: "NTIA Funding Announcements",
+  company: "NTIA",
+  state: "US",
+  source_url: "https://www.ntia.gov/funding-programs",
+  status: "New",
+  priority: "High",
+  notes: "Tracks federal broadband funding"
+}
 ];
 // POST = run the finder and insert leads
 export async function POST() {
   const { data, error } = await supabase
     .from("leads")
-    .insert(starterLeads)
+    .upsert(starterLeads, { onConflict: 'source_url' })
     .select();
 
   if (error) {
