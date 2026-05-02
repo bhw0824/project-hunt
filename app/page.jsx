@@ -134,7 +134,7 @@ export default function ProjectHunt() {
       <section className="hero">
         <div>
           <p className="eyebrow">IKE PROJECT HUNT</p>
-          <h1>Daily Project Lead Command Center</h1>
+        <h1>Daily Project Lead Command Center V2</h1>
           <p className="subtext">Track fiber, broadband, utility, make-ready, pole attachment, and construction project opportunities.</p>
         </div>
         <button className="refresh" onClick={fetchLeads}>Refresh</button>
