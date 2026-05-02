@@ -26,14 +26,12 @@ if (!json.opportunitiesData) return [];
 // POST = run the finder and insert leads
 export async function POST() {
   try {
-    return new Response(
-      JSON.stringify({ inserted: 5 }),
-      { status: 200 }
-    );
+    return new Response(JSON.stringify({ inserted: 5 }), {
+      status: 200,
+    });
   } catch (err) {
-    return new Response(
-      JSON.stringify({ error: "Finder failed" }),
-      { status: 500 }
-    );
+    return new Response(JSON.stringify({ error: "Finder failed" }), {
+      status: 500,
+    });
   }
 }
