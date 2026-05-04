@@ -7,7 +7,7 @@ const supabase = createClient(
 
 async function fetchSAM() {
   const res = await fetch(
-    `https://api.sam.gov/prod/opportunities/v2/search?limit=10&api_key=${process.env.SAM_API_KEY}&q=fiber%20broadband%20utility%20construction`
+  `https://api.sam.gov/prod/opportunities/v2/search?limit=25&api_key=${process.env.SAM_API_KEY}&q=fiber%20broadband%20telecommunications%20utility%20pole%20make%20ready%20aerial%20construction`
   );
 
   const json = await res.json();
