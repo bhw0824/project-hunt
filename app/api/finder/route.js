@@ -44,18 +44,18 @@ export async function POST() {
 
     if (error) {
       return new Response(
-        JSON.stringify({ inserted: 0, error: error.message }),
+        JSON.stringify({ insertedCount: 0, error: error.message })
         { status: 500 }
       );
     }
 
     return new Response(
-      JSON.stringify({ inserted: data.length }),
+      JSON.stringify({ insertedCount: data.length })
       { status: 200 }
     );
   } catch (err) {
     return new Response(
-      JSON.stringify({ inserted: 0, error: err.message }),
+      JSON.stringify({ insertedCount: 0, error: err.message })
       { status: 500 }
     );
   }
