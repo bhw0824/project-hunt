@@ -25,7 +25,7 @@ export default function ProjectHunt() {
 
       const data = await res.json();
 
-      alert("Projects added: " + data.inserted);
+     alert("Projects added: " + data.insertedCount);
 
       window.location.reload();
     } catch (err) {
