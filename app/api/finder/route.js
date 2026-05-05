@@ -39,7 +39,7 @@ export async function POST() {
 
     const { data, error } = await supabase
       .from("leads")
-      .upsert(samLeads, { onConflict: "source_url" })
+      .insert(samLeads)
       .select();
 
     if (error) {
