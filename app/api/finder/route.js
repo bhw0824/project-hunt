@@ -39,8 +39,8 @@ export async function POST() {
 
     const { data, error } = await supabase
       .from("leads")
-      .insert(samLeads)
-      .select();
+.insert(samLeads)
+.select();
 
     if (error) {
       return new Response(
