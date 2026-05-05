@@ -27,7 +27,15 @@ async function fetchSAM() {
 
 export async function POST() {
   try {
-    const samLeads = await fetchSAM();
+    const samLeads = [{
+  project_name: "TEST - Fiber Make Ready Project",
+  company: "Test Utility",
+  state: "CO",
+  source_url: "https://sam.gov",
+  status: "New",
+  priority: "High",
+  notes: "Manual test lead to confirm Supabase insert is working"
+}];
 
     const { data, error } = await supabase
       .from("leads")
