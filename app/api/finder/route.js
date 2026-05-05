@@ -37,21 +37,21 @@ export async function POST() {
   notes: "Manual test lead to confirm Supabase insert is working"
 }];
 
-    const { data, error } = await supabase
-      .from("leads")
-.insert(samLeads)
-.select();
+    const { error } = await supabase
+  .from("leads")
+  .insert(samLeads);
 
-    if (error) {
-      return new Response(
-        JSON.stringify({ insertedCount: 0, error: error.message })
-        { status: 500 }
-      );
-    }
+if (error) {
+  return new Response(
+    JSON.stringify({ insertedCount: 0, error: error.message }),
+    { status: 500 }
+  );
+}
 
-    return new Response(
-      JSON.stringify({ insertedCount: data.length })
-      { status: 200 }
+return new Response(
+  JSON.stringify({ insertedCount: samLeads.length }),
+  { status: 200 }
+);
     );
   } catch (err) {
     return new Response(
